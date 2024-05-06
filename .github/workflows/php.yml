@@ -18,6 +18,8 @@ jobs:
         working-directory: wishwell/backend
     steps:
     - uses: actions/checkout@v3
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
 
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
@@ -30,7 +32,7 @@ jobs:
         key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
         restore-keys: |
           ${{ runner.os }}-php-
-
+    
     - name: Install dependencies
       working-directory: wishwell/backend
       run: composer install --prefer-dist --no-progress
