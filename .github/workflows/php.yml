@@ -42,4 +42,4 @@ jobs:
       
     - name: Execute tests (Unit and Feature test) via PHPUnit
       working-directory: wishwell/backend
-      run: vendor/bin/phpunit
+      run: --coverage-clover=coverage.xml
