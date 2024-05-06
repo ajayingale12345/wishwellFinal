@@ -36,6 +36,9 @@ jobs:
     - name: Install dependencies
       working-directory: wishwell/backend
       run: composer install --prefer-dist --no-progress
+    - name: Generate key
+      run: php artisan key:generate
+      
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       working-directory: wishwell/backend
       run: vendor/bin/phpunit
