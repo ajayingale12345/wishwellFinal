@@ -17,7 +17,7 @@ jobs:
       run:
         working-directory: wishwell/backend
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v3
 
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
