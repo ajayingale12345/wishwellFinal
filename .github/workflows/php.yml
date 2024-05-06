@@ -37,6 +37,7 @@ jobs:
       working-directory: wishwell/backend
       run: composer install --prefer-dist --no-progress
     - name: Generate key
+      working-directory: wishwell/backend
       run: php artisan key:generate
       
     - name: Execute tests (Unit and Feature tests) via PHPUnit
