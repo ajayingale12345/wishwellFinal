@@ -40,6 +40,6 @@ jobs:
       working-directory: wishwell/backend
       run: php artisan key:generate
       
-    - name: Execute tests (Unit and Feature tests) via PHPUnit
+    - name: Execute tests (Unit and Feature test) via PHPUnit
       working-directory: wishwell/backend
       run: vendor/bin/phpunit
