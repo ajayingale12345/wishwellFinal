@@ -37,4 +37,5 @@ jobs:
       working-directory: wishwell/backend
       run: composer install --prefer-dist --no-progress
     - name: Execute tests (Unit and Feature tests) via PHPUnit
+      working-directory: wishwell/backend
       run: vendor/bin/phpunit
