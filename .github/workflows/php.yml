@@ -42,9 +42,17 @@ jobs:
       
     - name: Execute tests (Unit and Feature test) via PHPUnit
       working-directory: wishwell/backend
-      run: vendor/bin/phpunit --coverage-clover=coverage.xml
-    - name: Create coverage artifact
-      uses: actions/upload-artifact@v2
-      with:
-          name: coverage-report
-          path: wishwell/backend/coverage.xml
+      run: vendor/bin/phpunit --coverage-clover=coverage.php
+
+    - name: Generate Coverage report
+      run: |
+          php CoverageGenerate.php >> Coverage.md
+      env:
+          XDEBUG_MODE: coverage
+
+    # - name: Create coverage artifact
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #       name: coverage-report
+    #       path: wishwell/backend/coverage.xml
+    
