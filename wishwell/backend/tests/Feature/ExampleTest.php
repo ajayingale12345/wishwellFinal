@@ -16,4 +16,34 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    /**
+     * Test if the about page returns a successful response.
+     */
+    public function test_the_about_page_returns_a_successful_response(): void
+    {
+        $response = $this->get('/about');
+
+        $response->assertStatus(200);
+    }
+
+    /**
+     * Test if the contact page returns a successful response.
+     */
+    public function test_the_contact_page_returns_a_successful_response(): void
+    {
+        $response = $this->get('/contact');
+
+        $response->assertStatus(200);
+    }
+
+    /**
+     * Test if the login page returns a successful response.
+     */
+    public function test_the_login_page_returns_a_successful_response(): void
+    {
+        $response = $this->get('/login');
+
+        $response->assertStatus(200);
+    }
 }
