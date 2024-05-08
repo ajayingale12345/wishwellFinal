@@ -45,6 +45,7 @@ jobs:
       run: vendor/bin/phpunit --stop-on-failure --coverage-php=coverage.php
 
     - name: Generate Coverage report
+      working-directory: wishwell/backend
       run: |
           php coverage.php >> Coverage.md
       env:
