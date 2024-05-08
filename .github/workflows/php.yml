@@ -46,7 +46,7 @@ jobs:
 
     - name: Generate Coverage report
       run: |
-          php CoverageGenerate.php >> Coverage.md
+          php coverage.php >> Coverage.md
       env:
           XDEBUG_MODE: coverage
 
