@@ -45,11 +45,11 @@ jobs:
       run: vendor/bin/phpunit --coverage-html=coverage.html
 
       
-    # - name: Create coverage artifact
-    #   uses: actions/upload-artifact@v2
-    #   with:
-    #       name: coverage-report
-    #       path: wishwell/backend/coverage.xml
+    - name: Create coverage artifact
+      uses: actions/upload-artifact@v2
+      with:
+          name: coverage-report
+          path: wishwell/backend/coverage.html
 
     
     # - name: SonarQube Scan
