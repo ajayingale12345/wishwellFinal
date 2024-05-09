@@ -61,7 +61,7 @@ jobs:
               -Dsonar.sources=.
               -Dsonar.projectName=wishwellFinal
               -Dsonar.projectVersion=1.0
-              -Dsonar.host.url=${{ SONAR_HOST_URL }} # Or your SonarQube server URL
+              -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} # Or your SonarQube server URL
               -Dsonar.login=${{ secrets.SONAR_TOKEN }}  # Secret token used for authentication
               -Dsonar.php.coverage.reportPaths=coverage.xml  # Path to your PHPUnit coverage report
               # -Dsonar.php.tests.reportPath=junit.xml  # Path to your PHPUnit test report
