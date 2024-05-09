@@ -42,17 +42,27 @@ jobs:
       
     - name: Execute tests (Unit and Feature test) via PHPUnit
       working-directory: wishwell/backend
-      run: vendor/bin/phpunit --coverage-html=coverage.html
+      run: vendor/bin/phpunit --coverage-clover=coverage.xml
 
       
     - name: Create coverage artifact
       uses: actions/upload-artifact@v2
       with:
           name: coverage-report
-          path: wishwell/backend/coverage.html
+          path: wishwell/backend/coverage.xml
 
     
-    - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@master
-      env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+    - name: SonarQube Scan
+      uses: sonarsource/sonarqube-scan-action@v2
+      with:
+          projectBaseDir:  wishwell/backend
+          args: >
+              -Dsonar.projectKey=ajayingale12345_wishwellFinal
+              -Dsonar.sources=.
+              -Dsonar.projectName=wishwellFinal
+              -Dsonar.projectVersion=1.0
+              -Dsonar.host.url=https://sonarcloud.io  # Or your SonarQube server URL
+              -Dsonar.login=${{ secrets.SONAR_TOKEN }}  # Secret token used for authentication
+              -Dsonar.php.coverage.reportPaths=coverage.xml  # Path to your PHPUnit coverage report
+              # -Dsonar.php.tests.reportPath=junit.xml  # Path to your PHPUnit test report
+
