@@ -42,42 +42,42 @@ jobs:
       
     - name: Execute tests (Unit and Feature test) via PHPUnit
       working-directory: wishwell/backend
-      run: vendor/bin/phpunit --coverage-html=coverage.html
+      run: vendor/bin/phpunit --coverage-clover=coverage.xml
 
       
     - name: Create coverage artifact
       uses: actions/upload-artifact@v2
       with:
           name: coverage-report
-          path: wishwell/backend/coverage.html
+          path: wishwell/backend/coverage.xml
 
     
-    # - name: SonarQube Scan
-    #   uses: sonarsource/sonarqube-scan-action@v2
-    #   with:
-    #       projectBaseDir:  wishwell/backend
-    #       args: >
-    #           -Dsonar.projectKey=ajayingale12345_wishwellFinal
-    #           -Dsonar.projectName=wishwellFinal
-    #           -Dsonar.projectVersion=2.0
-    #           -Dsonar.php.coverage.reportPaths=coverage.xml  # Path to your PHPUnit coverage report
-  
-    #           env:
-    #             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-    #             SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-
     - name: SonarQube Scan
       uses: sonarsource/sonarqube-scan-action@v2
       with:
-        projectBaseDir: wishwell/backend
-        args: >
-            -Dsonar.projectKey=ajayingale12345_wishwellFinal
-            -Dsonar.projectName=wishwellFinal
-            -Dsonar.projectVersion=2.0
-            -Dsonar.php.coverage.reportPaths=coverage.xml
+          projectBaseDir:  wishwell/backend
+          args: >
+              -Dsonar.projectKey=ajayingale12345_wishwellFinal
+              -Dsonar.projectName=wishwellFinal
+              -Dsonar.projectVersion=2.0
+              -Dsonar.php.coverage.reportPaths=coverage.xml  # Path to your PHPUnit coverage report
+  
+              env:
+                SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+                SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
+    # - name: SonarQube Scan
+    #   uses: sonarsource/sonarqube-scan-action@v2
+    #   with:
+    #     projectBaseDir: wishwell/backend
+    #     args: >
+    #         -Dsonar.projectKey=ajayingale12345_wishwellFinal
+    #         -Dsonar.projectName=wishwellFinal
+    #         -Dsonar.projectVersion=2.0
+    #         -Dsonar.php.coverage.reportPaths=coverage.xml
        
-    env:
-      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+    # env:
+    #   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+    #   SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
 
