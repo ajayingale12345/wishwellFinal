@@ -42,7 +42,7 @@ jobs:
       
     - name: Execute tests (Unit and Feature test) via PHPUnit
       working-directory: wishwell/backend
-      run: vendor/bin/pest --coverage-html=build/coverage
+      run: vendor/bin/pest --coverage-html=coverage.html
 
       
     # - name: Create coverage artifact
