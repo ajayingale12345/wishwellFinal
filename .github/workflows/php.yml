@@ -74,6 +74,7 @@ jobs:
             -Dsonar.projectKey=ajayingale12345_wishwellFinal
             -Dsonar.projectName=wishwellFinal
             -Dsonar.projectVersion=2.0
+            -Dsonar.php.coverage.reportPaths=coverage.xml
             -Dsonar.coverage.exclusions=tests/**/*
     env:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
