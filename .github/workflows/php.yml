@@ -51,10 +51,15 @@ jobs:
           name: coverage-report
           path: wishwell/backend/coverage.xml
           
-    - name: Printing screates
-      run: |
-          echo "${{ secrets.SONAR_TOKEN }}"
-          echo "${{ secrets.SONAR_HOST_URL }}"
+    - name: Send notification to slack from github using githubaction
+      uses: slackapi/slack-github-action@v1.25.0
+      with:
+         payload: |
+          {
+           "text": "Sending Notification "
+           }
+      env:
+            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEB_HOOK}}
 
     
     - name: SonarQube Scan
