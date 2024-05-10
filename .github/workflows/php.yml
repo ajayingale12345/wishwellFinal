@@ -76,7 +76,30 @@ jobs:
            }
       env:
             SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL}}
-      
+            
+
+  trivy_scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install Trivy
+        run: |
+          wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
+          echo deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main | sudo tee -a /etc/apt/sources.list.d/trivy.list
+          sudo apt-get update && sudo apt-get install trivy
+
+      - name: Scan PHP project with Trivy
+        run: |
+          trivy filesystem . --only-packages --format json > trivy_report.json
+
+      - name: Create coverage artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Trivy-report
+          path: wishwell/backend/trivy_report.json
 
    
 
