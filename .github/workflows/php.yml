@@ -93,7 +93,7 @@ jobs:
 
       - name: Scan PHP project with Trivy
         run: |
-          trivy filesystem . --only-packages --format json > trivy_report.json
+          trivy filesystem . --only-update  --format json > trivy_report.json
 
       - name: Create coverage artifact
         uses: actions/upload-artifact@v2
