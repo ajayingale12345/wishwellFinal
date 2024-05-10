@@ -101,7 +101,7 @@ jobs:
         
       - name: Scan PHP dependencies with Trivy
         run: |
-          trivy dependency-scan --file composer.lock --type composer --format json > trivy_report.json
+          trivy dependency-scan  composer.lock --type composer --format json > trivy_report.json
 
       - name: Create coverage artifact
         
