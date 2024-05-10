@@ -86,19 +86,18 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+
+      - name: Install Composer dependencies
+        run: composer install --no-dev --ignore-platform-reqs
 
       - name: Install Trivy
         run: |
           wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
           echo deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main | sudo tee -a /etc/apt/sources.list.d/trivy.list
           sudo apt-get update && sudo apt-get install trivy
-      - name: Install PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.0'  # Change this to match your PHP version
-
-      - name: Install Composer dependencies
-        run: composer install --no-dev --ignore-platform-reqs
+     
         
       - name: Scan PHP dependencies with Trivy
         run: |
