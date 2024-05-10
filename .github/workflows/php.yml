@@ -59,7 +59,7 @@ jobs:
            "text": "Sending Notification "
            }
       env:
-            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEB_HOOK}}
+            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL}}
 
     
     - name: SonarQube Scan
