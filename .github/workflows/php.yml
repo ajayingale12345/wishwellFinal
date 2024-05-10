@@ -64,6 +64,7 @@ jobs:
           args: >
               -Dsonar.projectKey=ajayingale12345_wishwellFinal
               -Dsonar.projectName=wishwellFinal
+              -Dsonar.sources=.
               -Dsonar.projectVersion=2.0
               -Dsonar.php.coverage.reportPaths=coverage.xml  # Path to your PHPUnit coverage report
   
