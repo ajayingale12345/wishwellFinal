@@ -68,9 +68,9 @@ jobs:
               -Dsonar.projectVersion=2.0
               -Dsonar.php.coverage.reportPaths=coverage.xml  # Path to your PHPUnit coverage report
   
-              env:
+      env:
                 SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-                # SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+                SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
       
 
