@@ -80,7 +80,9 @@ jobs:
 
   trivy_scan:
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: wishwell/backend
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -96,8 +98,10 @@ jobs:
           trivy filesystem .  --format json > trivy_report.json
 
       - name: Create coverage artifact
+        
         uses: actions/upload-artifact@v2
         with:
+          projectBaseDir:  wishwell/backend
           name: Trivy-report
           path: wishwell/backend/trivy_report.json
 
