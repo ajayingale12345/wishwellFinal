@@ -93,9 +93,9 @@ jobs:
           echo deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main | sudo tee -a /etc/apt/sources.list.d/trivy.list
           sudo apt-get update && sudo apt-get install trivy
 
-      - name: Scan PHP project with Trivy
+      - name: Scan PHP dependencies with Trivy
         run: |
-          trivy filesystem .  --format json > trivy_report.json
+          trivy dependency-scan --file composer.lock --type composer --format json > trivy_report.json
 
       - name: Create coverage artifact
         
