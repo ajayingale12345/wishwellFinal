@@ -50,6 +50,11 @@ jobs:
       with:
           name: coverage-report
           path: wishwell/backend/coverage.xml
+          
+    - name: Printing screates
+      run: |
+          echo "${{ secrets.SONAR_TOKEN }}"
+          echo "${{ secrets.SONAR_HOST_URL }}"
 
     
     - name: SonarQube Scan
@@ -66,18 +71,8 @@ jobs:
                 SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
                 SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
-    # - name: SonarQube Scan
-    #   uses: sonarsource/sonarqube-scan-action@v2
-    #   with:
-    #     projectBaseDir: wishwell/backend
-    #     args: >
-    #         -Dsonar.projectKey=ajayingale12345_wishwellFinal
-    #         -Dsonar.projectName=wishwellFinal
-    #         -Dsonar.projectVersion=2.0
-    #         -Dsonar.php.coverage.reportPaths=coverage.xml
-       
-    # env:
-    #   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-    #   SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      
+
+   
 
 
