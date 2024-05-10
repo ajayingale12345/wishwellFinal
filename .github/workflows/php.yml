@@ -64,7 +64,7 @@ jobs:
           args: >
               -Dsonar.projectKey=ajayingale12345_wishwellFinal
               -Dsonar.projectName=wishwellFinal
-              -Dsonar.organization= ajayingale12345
+              -Dsonar.organization=ajayingale12345
               -Dsonar.sources=.
               -Dsonar.projectVersion=2.0
               -Dsonar.php.coverage.reportPaths=coverage.xml 
